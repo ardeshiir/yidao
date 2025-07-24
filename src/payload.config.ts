@@ -16,6 +16,25 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
+    meta: {
+      title: 'Yidao',
+      description: 'Yidao CMS',
+      icons: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          url: '/favicon.svg',
+        },
+      ],
+    },
+    components: {
+      // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
+      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
+      graphics: {
+        Logo: '/favicon.svg',
+        Icon: '/favicon.svg',
+      },
+    },
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),

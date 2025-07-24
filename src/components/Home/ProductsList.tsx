@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
 import Image from 'next/image'
+import config from '@payload-config'
+import { getPayload } from 'payload'
 
 interface ProductsListProps {
   count: number
@@ -31,12 +33,18 @@ const SingleProduct = ({count,subtitle,title,price,description, image}:ProductsL
   )
 }
 
-const ProductsList = () => {
+const ProductsList = async () => {
+  const payload = await getPayload({ config })
+  const productsData = await payload.find({
+    collection: 'products',
+    depth: 2,
+  })
+  console.log({productsData:productsData.docs})
   return (
     <div
       className={'grid md:mt-[150px] mt-[240px] md:gap-[30px] gap-[180px] mx-auto md:px-[98px] px-[58px] md:grid-cols-2 grid-cols-1'}
     >
-      {products.map((prod,index)=><SingleProduct {...prod} key={index}/>)}
+      {products.map((prod,index)=><SingleProduct {...prod} price={productsData?.docs?.[index]?.price || prod.price} key={index}/>)}
     </div>
   )
 }

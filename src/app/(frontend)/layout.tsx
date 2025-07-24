@@ -16,7 +16,8 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={'w-full'}>
-    <Header/>
+      <link rel="icon" href="/favicon.svg" sizes="any" />
+      <Header/>
         <main className={'w-full'}>{children}</main>
     <Footer/>
     <Toaster />
