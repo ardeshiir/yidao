@@ -13,6 +13,9 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const contactFormSchema = z.object({
     name: z.string().min(2).max(50),
+    company: z.string().min(2).max(50),
+    phone: z.string().min(2).max(50),
+    country: z.string().min(2).max(50),
     email: z.string().min(2).max(50),
     subject: z.string().min(2).max(50),
     message: z.string().min(2).max(50),
