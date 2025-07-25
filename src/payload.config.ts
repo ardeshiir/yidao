@@ -32,8 +32,8 @@ export default buildConfig({
       // Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
       beforeLogin: ['@/components/BeforeLogin'],
       graphics: {
-        Logo: '/favicon.svg',
-        Icon: '/favicon.svg',
+        Logo: '@/components/Icons/LogoAsIcon',
+        Icon: '@/components/Icons/LogoAsIcon',
       },
     },
     user: Users.slug,
