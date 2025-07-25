@@ -1,5 +1,7 @@
+'use client'
 import React from 'react'
 import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
 
 interface IFaqItemProps {
   title: string
@@ -28,12 +30,26 @@ const FaqItem = ({
     </div>
   )
 }
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+}
 
 const FaqList = () => {
   return <div className={'flex items-center w-full justify-center'} style={{
     background: 'linear-gradient(180deg, rgba(247, 247, 247, 0) 29.64%, #F3F3F3 100%)'
   }}>
-            <div className={'flex md:px-[98px] mt-[12px] mb-[130px] max-w-[988px] mx-auto px-[58px] flex-col w-full'}>{Items.map((faqItem,index)=><FaqItem {...faqItem}  key={index} index={index+1} />)}</div>
+            <div className={'flex md:px-[98px] mt-[12px] mb-[130px] max-w-[988px] mx-auto px-[58px] flex-col w-full'}>{Items.map((faqItem,index)=><motion.div
+              key={index}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            ><FaqItem {...faqItem}  key={index} index={index+1} /></motion.div>)}</div>
           </div>
 }
 

@@ -32,14 +32,14 @@ const ContactForm = () => {
   });
 
   const inputClassNames =
-    "custom-blur-md w-full rounded-[20px] border border-[#CECACB] bg-white  py-[16px] text-center text-sm  text-white placeholder:text-[18px] placeholder:text-black focus:outline-1 focus:outline-white focus:placeholder:opacity-0";
+    "custom-blur-md w-full rounded-[20px] border border-[#CECACB] bg-white  py-[16px] text-center text-sm  text-black placeholder:text-[18px] placeholder:text-black focus:outline-1 focus:outline-white focus:placeholder:opacity-0";
 
 
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(()=>{})}
-        className="grid mx-auto 2xl:max-w-[1400px] pb-[86px] max-w-[1200px] md:w-[694px] px-[48px] grid-cols-6 gap-x-[8px] gap-y-[14px] pt-[88px] w-full md:max-w-[694px]"
+        className="grid mx-auto 2xl:max-w-[1400px] pb-[86px] max-w-[1200px]  px-[48px] grid-cols-6 gap-x-[8px] gap-y-[14px] pt-[88px] w-full"
       >
         <FormField
           control={form.control}
@@ -144,7 +144,7 @@ const ContactForm = () => {
                         {...field}
                         onFocus={() => setIsTextAreaFocused(true)}
                         onBlur={() => setIsTextAreaFocused(false)}
-                        className="custom-blur-md flex size-full border-[#CECACB] border resize-none items-center justify-center rounded-[20px] border   bg-white bg-opacity-5 p-3 text-start  text-sm text-white placeholder:absolute placeholder:top-1/2 placeholder:text-[18px] placeholder:text-white focus:outline-1 focus:outline-white"
+                        className="custom-blur-md flex size-full border-[#CECACB] border resize-none items-center justify-center rounded-[20px] border   bg-white bg-opacity-5 p-3 text-start  text-sm text-black placeholder:absolute placeholder:top-1/2 placeholder:text-[18px] placeholder:text-white focus:outline-1 focus:outline-white"
                       />
                   </FormControl>
                   {!isTextAreaFocused &&

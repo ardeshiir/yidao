@@ -1,23 +1,57 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import ShippingIcon from '@/components/Icons/ShippingIcon'
+import { motion } from 'framer-motion'
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+}
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+}
+
+const itemVariants1 = {
+  hidden: { x: -100, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+}
+const itemVariants2 = {
+  hidden: { x: 100, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+}
 
 
 const SecondSection = () => {
   return (
     <div className={'flex flex-col items-center my-[130px] md:mb-[130px] mb-[100px] md:px-[98px] px-[58px] gap-[39px]'}>
-<div className={'flex md:flex-row flex-col text-center items-center md:gap-[60px] gap-[48px]'}>
+<motion.div variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }} className={'flex md:flex-row flex-col text-center items-center md:gap-[60px] gap-[48px]'}>
   <div className={'min-w-[107px]'}><ShippingIcon/></div>
   <div className={cn('flex md:w-[85%] w-full flex-col text-center gap-5')}>
     <h2 className={'font-bold'}>安心发货，服务全球</h2>
     <p>我们很高兴为全球客户提供服务。对于大宗出口订单，请了解：不同国家/地区可能会根据当地海关政策产生进口税费和合规要求。虽然这些费用不由 YiDao Trade 控制或承担，但我们将尽全力协助您顺利完成采购流程  包括提供商业发票、产品认证等必要文件。如您对运输细节或所在地区有任何疑问，我们的团队乐意为您提供支持。让跨境采购变得更简单、更安心，是我们一直努力的方向。</p>
   </div>
-</div>
-<div className={'md:flex hidden items-center gap-[36px] w-full max-w-7xl'}>
-<div className={'flex-grow h-full min-h-full'}><FirstCard/></div>
-<div className={'w-[27%]'}><SecondCard/></div>
-</div>
+</motion.div>
+<motion.div variants={containerVariants}
+            initial="hidden"
+            animate="visible" className={'md:flex hidden items-center gap-[36px] w-full max-w-7xl'}>
+<motion.div variants={itemVariants1} className={'flex-grow h-full min-h-full'}><FirstCard/></motion.div>
+<motion.div variants={itemVariants2} className={'w-[27%]'}><SecondCard/></motion.div>
+</motion.div>
     </div>
   )
 }
