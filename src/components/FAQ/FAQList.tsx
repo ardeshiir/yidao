@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
+import { Easing, motion } from 'framer-motion'
 
 interface IFaqItemProps {
   title: string
@@ -35,7 +35,7 @@ const fadeInUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: 0.6, ease: 'easeOut' as Easing },
   },
 }
 

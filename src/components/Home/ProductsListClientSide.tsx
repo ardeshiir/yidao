@@ -1,6 +1,6 @@
 'use client'
 import React, { ReactNode } from 'react'
-import { motion } from 'framer-motion'
+import { Easing, motion } from 'framer-motion'
 import Image from 'next/image'
 import { Product } from '@/payload-types'
 
@@ -48,7 +48,7 @@ const fadeInUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: 0.6, ease: 'easeOut' as Easing },
   },
 }
 

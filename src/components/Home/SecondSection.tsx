@@ -3,14 +3,14 @@ import React from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import ShippingIcon from '@/components/Icons/ShippingIcon'
-import { motion } from 'framer-motion'
+import { Easing, motion } from 'framer-motion'
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: 0.6, ease: 'easeOut' as Easing },
   },
 }
 
@@ -25,11 +25,11 @@ const containerVariants = {
 
 const itemVariants1 = {
   hidden: { x: -100, opacity: 0 },
-  visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' as Easing } },
 }
 const itemVariants2 = {
   hidden: { x: 100, opacity: 0 },
-  visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' as Easing } },
 }
 
 
