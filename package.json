@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
+    "@libsql/client": "^0.15.15",
     "@payloadcms/db-sqlite": "3.48.0",
     "@payloadcms/next": "3.48.0",
     "@payloadcms/payload-cloud": "3.48.0",
